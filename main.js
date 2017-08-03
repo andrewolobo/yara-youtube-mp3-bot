@@ -16,7 +16,7 @@ const token = "409933787:AAGf14vaLeE5BvyCKUqUk5jJK-MjKNdpnns";
     childProcess.spawn = mySpawn;
 })();
 
-
+console.log("Yara lives")
 const bot = new TelegramBot(token, {
     polling: true
 });
