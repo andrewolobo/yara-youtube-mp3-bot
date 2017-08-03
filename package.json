@@ -1,0 +1,22 @@
+{
+  "name": "Yara",
+  "version": "1.0.0",
+  "description": "Personal Assistant",
+  "main": "main.js",
+  "scripts": {
+    "test": "test_ambot",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "andrew olobo",
+    "telegram bot",
+    "personal assistant"
+  ],
+  "author": "Andrew Olobo",
+  "license": "ISC",
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "node-telegram-bot-api": "^0.27.1",
+    "youtube-dl": "^1.11.1"
+  }
+}
