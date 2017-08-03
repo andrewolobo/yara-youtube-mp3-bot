@@ -4,7 +4,7 @@
   "description": "Personal Assistant",
   "main": "main.js",
   "scripts": {
-    "test": "test_ambot",
+    "test": "standard",
     "start": "node main.js"
   },
   "keywords": [
