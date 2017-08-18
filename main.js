@@ -75,9 +75,11 @@ function download(id, link) {
     })
     video.on("info", function (result) {
         console.log(result.filename);
-        filename = result.filename;
+        filename = result._filename;
+        console.log(filename)
         var file = "mp4/" + filename;
-        var output_file = file.replace("mp4","mp3")
+        var output_file = file.replace(".mp4", ".mp3")
+        console.log("Replaced", output_file);
         video.pipe(fs.createWriteStream(file))
         video.on('end', function () {
             var proc = new ffmpeg({
@@ -85,7 +87,7 @@ function download(id, link) {
                 nolog: false
             });
             proc.addOptions([
-                '-f mp3' ,
+                '-f mp3',
                 '-ab 192000',
                 '-ar 16000',
                 '-vn'
@@ -95,7 +97,7 @@ function download(id, link) {
                 console.log("11111111111111 -------------video: " + err);
             });
             proc.save(output_file).on('end', function () {
-                bot.sendAudio(id,output_file);
+                bot.sendAudio(id, output_file);
             })
 
         });
