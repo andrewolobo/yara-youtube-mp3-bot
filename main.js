@@ -71,6 +71,7 @@ function download(id, link) {
     console.log(link)
     var video = youtubedl(link, ['--extract-audio']);
     video.on("error", function (e) {
+        console.log("an error occured");
         console.log(e)
     })
     video.on("info", function (result) {
@@ -93,7 +94,6 @@ function download(id, link) {
                 '-vn'
             ]);
             proc.on('error', function (err, stdout, stderr) {
-                reject(err)
                 console.log("11111111111111 -------------video: " + err);
             });
             proc.save(output_file).on('end', function () {
