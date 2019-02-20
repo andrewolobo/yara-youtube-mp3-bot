@@ -204,15 +204,7 @@
       "resolved": "https://registry.npmjs.org/file-type/-/file-type-3.9.0.tgz",
       "version": "3.9.0"
     },
-    "fluent-ffmpeg": {
-      "integrity": "sha1-yVLeIkD4EuvaCqgAbXd27irPfXQ=",
-      "requires": {
-        "async": ">=0.2.9",
-        "which": "^1.1.1"
-      },
-      "resolved": "https://registry.npmjs.org/fluent-ffmpeg/-/fluent-ffmpeg-2.1.2.tgz",
-      "version": "2.1.2"
-    },
+    "fluent-ffmpeg": "^2.1.2",
     "forever-agent": {
       "integrity": "sha1-+8cfDEGt6zf5bFd60e1C2P2sypE=",
       "resolved": "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz",
@@ -412,24 +404,7 @@
       "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.1.tgz",
       "version": "2.1.1"
     },
-    "node-telegram-bot-api": {
-      "integrity": "sha512-+EeM+fe3Xt81KIPqN3L6s6eK+FK4QaqyDcwCwkY/jqsleERXwwjGlVbf4lJCOZ0uJuF5PfqTmvVNtua7AZfBXg==",
-      "requires": {
-        "array.prototype.findindex": "^2.0.2",
-        "bl": "^1.2.1",
-        "bluebird": "^3.5.1",
-        "debug": "^3.1.0",
-        "depd": "^1.1.1",
-        "eventemitter3": "^3.0.0",
-        "file-type": "^3.9.0",
-        "mime": "^1.6.0",
-        "pump": "^2.0.0",
-        "request": "^2.83.0",
-        "request-promise": "^4.2.2"
-      },
-      "resolved": "https://registry.npmjs.org/node-telegram-bot-api/-/node-telegram-bot-api-0.30.0.tgz",
-      "version": "0.30.0"
-    },
+    "node-telegram-bot-api": "^0.30.0",
     "oauth-sign": {
       "integrity": "sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==",
       "resolved": "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz",
