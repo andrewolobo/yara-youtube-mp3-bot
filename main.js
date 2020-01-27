@@ -1,7 +1,43 @@
 const TelegramBot = require('node-telegram-bot-api');
-const ffmpeg = require('fluent-ffmpeg')
+const ffmpeg = require('fluent-ffmpeg');
+const dropboxV2Api = require('dropbox-v2-api');
 
 const token = "409933787:AAGf14vaLeE5BvyCKUqUk5jJK-MjKNdpnns";
+
+var dropboxToken = "74F-erdyvQ0AAAAAAAAFn3VsTUsL4dohfI2reD3MRaaBxIRTPrppMEDHyA5a2-W0";
+
+const dropbox = dropboxV2Api.authenticate({
+    token: dropboxToken
+});
+var primary = "";
+
+dropbox({
+    resource: 'users/get_account',
+    parameters: {
+        'account_id': 'dbid:AAH4f99T0taONIb-OurWxbNQ6ywGRopQngc'
+    }
+}, (err, result, response) => {
+    if (err) {
+        return console.log(err);
+    }
+    console.log(result);
+});
+
+function upload(filename) {
+    var file = filename.replace("/mp4", "");
+    dropbox({
+        resource: 'files/upload',
+        parameters: {
+            path: '/Podrick/Music/' + file
+        },
+        readStream: fs.createReadStream(filename)
+    }, (err, result, response) => {
+        if (!err) {
+            console.log(result)
+            bot.sendMessage(primary, "Upload Complete");
+        }
+    });
+}
 
 (function () {
     var childProcess = require("child_process");
@@ -78,7 +114,7 @@ function download(id, link) {
         console.log(result.filename);
         filename = result._filename;
         console.log(filename)
-        var file = "mp4/" + filename;
+        var file = "mp3/" + filename;
         var output_file = file.replace(".mp4", ".mp3")
         console.log("Replaced", output_file);
         video.pipe(fs.createWriteStream(file))
@@ -98,6 +134,7 @@ function download(id, link) {
             });
             proc.save(output_file).on('end', function () {
                 bot.sendAudio(id, output_file);
+                upload(output_file);
             })
 
         });
@@ -122,7 +159,8 @@ bot.on('message', (msg) => {
             list: []
         })
         console.log(user_pool)
-        bot.sendMessage(chatId, "Hey, you're new. Hi " + msg.chat.first_name);
+        bot.sendMessage(chatId, "Yara Lives! Hey " + msg.chat.first_name);
+        primary = chatId;
 
     }
 
